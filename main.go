@@ -72,8 +72,12 @@ func get_credit() int64 {
 }
 
 func main() {
+	InitOtel()
+
 	ctx := context.Background()
+
 	mtr := otel.Meter("Example meter name")
+
 	successCounter, err := mtr.Int64Counter("success_counter")
 	if err != nil {
 		slog.Error("successCounter", "err", err)
